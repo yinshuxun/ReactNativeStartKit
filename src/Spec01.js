@@ -2,14 +2,26 @@ import React, {Component} from 'react'
 import {StyleSheet, Text, View, Button} from 'react-native'
 import {connect} from 'react-redux'
 
+const handle = dispatch => {
+    setTimeout(() => {
+        dispatch({
+            type: 'add',
+            step: 3
+        })
+    }, 100)
+}
+
 class Spec01 extends Component {
+    static navigationOptions = {
+        title: 'Spec01'
+    }
     render() {
         return (
             <View style={{flex: 1}}>
                 <View style={{height: 400, justifyContent: 'center'}}>
                     <Text style={styles.text}>{this.props.num}</Text>
-                    <Button title="add" onPress={() => (this.props.dispatch({type: 'add'}))}/>
-                    <Button title="reduce" onPress={() => (this.props.dispatch({type: 'del'}))}/>
+                    <Button title="add" onPress={() => this.props.dispatch(handle)}/>
+                    <Button title="reduce" onPress={() => (this.props.dispatch({type: 'del', step: 1}))}/>
                 </View>
             </View>
         )
@@ -31,12 +43,6 @@ const styles = StyleSheet.create({
     }
 })
 
-export default connect(store => {
-    return {
-        num: store.num
-    }
-}, dispatch => {
-    return {
-        dispatch
-    }
-})(Spec01)
+export default connect(store => ({
+    num: store.num
+}), dispatch => ({dispatch}))(Spec01)
