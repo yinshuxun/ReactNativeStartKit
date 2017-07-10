@@ -2,17 +2,14 @@ import React, {Component} from 'react'
 import {StyleSheet, Text, View, Button} from 'react-native'
 import {connect} from 'react-redux'
 
-@connect(state => ({
-    num: state.num
-}))
-
 class Spec01 extends Component {
     render() {
         return (
             <View style={{flex: 1}}>
                 <View style={{height: 400, justifyContent: 'center'}}>
                     <Text style={styles.text}>{this.props.num}</Text>
-                    <Button title="click it" onPress={add}/>
+                    <Button title="add" onPress={() => (this.props.dispatch({type: 'add'}))}/>
+                    <Button title="reduce" onPress={() => (this.props.dispatch({type: 'del'}))}/>
                 </View>
             </View>
         )
@@ -33,4 +30,13 @@ const styles = StyleSheet.create({
         marginTop: 30
     }
 })
-export default Spec01
+
+export default connect(store => {
+    return {
+        num: store.num
+    }
+}, dispatch => {
+    return {
+        dispatch
+    }
+})(Spec01)

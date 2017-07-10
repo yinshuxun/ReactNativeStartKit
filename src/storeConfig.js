@@ -16,6 +16,8 @@ const reducer = (state = initializeState, action) => {
                 ...state,
                 num: state.num - 1
             };
+        default:
+            return state
     }
 }
 
