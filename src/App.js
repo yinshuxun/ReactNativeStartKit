@@ -3,7 +3,7 @@ import {AppRegistry} from 'react-native'
 import {Provider} from 'react-redux'
 import AppWithNavigator from './Root'
 import storeConfig from './storeConfig'
-import Spec01 from './Spec01'
+import Spec01 from './views/Spec01'
 
 const store = storeConfig()
 

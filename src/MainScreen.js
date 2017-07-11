@@ -25,6 +25,11 @@ class Main extends Component {
                         navigate('Spec01')
                     }} title='jump to spec01'
                     />
+                    <Button onPress={() => {
+                        navigate('Flat')
+                    }} title='jump to FlatShow'
+                    />
+
                 </View>
             </View>
         )
