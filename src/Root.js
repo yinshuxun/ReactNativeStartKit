@@ -1,26 +1,14 @@
-import React, {Component} from 'react'
-import Spec01 from './views/Spec01'
-import FlatListView from './views/FlatListView'
-import MainScreen from './MainScreen'
-import {StackNavigator} from 'react-navigation';
+import React, { Component } from 'react'
+import { StackNavigator } from 'react-navigation';
+import { routerConfig, stackNavigatorConfig } from './navConfig.js'
 
 
-const AppNavigator = StackNavigator({
-    Main: {
-        screen: MainScreen
-    },
-    Spec01: {
-        screen: Spec01
-    },
-    Flat: {
-        screen: FlatListView
-    }
-})
+const AppNavigator = StackNavigator(routerConfig, stackNavigatorConfig)
 
 export default class AppWithNavigator extends Component {
     render() {
         return (
-            <AppNavigator/>
+            <AppNavigator />
         )
     }
 }
