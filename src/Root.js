@@ -1,15 +1,18 @@
 import React, { Component } from 'react'
 import { StackNavigator } from 'react-navigation';
-import { routerConfig, stackNavigatorConfig } from './navConfig.js'
+import AppNavigator from './AppNavigator.js'
+import { connect } from 'react-redux'
+import { addNavigationHelpers } from 'react-navigation'
 
-
-const AppNavigator = StackNavigator(routerConfig, stackNavigatorConfig)
-
-export default class AppWithNavigator extends Component {
+class AppWithNavigator extends Component {
     render() {
+        var { dispatch, nav } = this.props
         return (
-            <AppNavigator />
+            <AppNavigator navigation={addNavigationHelpers({ dispatch, state: nav })} />
         )
     }
 }
 
+export default connect(({ nav }) => ({
+    nav
+}), dispatch => ({ dispatch }))(AppWithNavigator)

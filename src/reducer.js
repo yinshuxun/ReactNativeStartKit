@@ -1,8 +1,11 @@
-const initializeState = {
+import { combineReducers } from 'redux'
+import AppNavigator from './AppNavigator'
+
+const initializeHomeState = {
     num: 0
 }
 
-const reducer = (state = initializeState, action) => {
+const homeReducer = (state = initializeHomeState, action) => {
     switch (action.type) {
         case 'add':
             return {
@@ -19,4 +22,11 @@ const reducer = (state = initializeState, action) => {
     }
 }
 
-export default reducer
+const navReducer = (state, action) => {
+    return AppNavigator.router.getStateForAction(action, state) || state
+}
+
+export default combineReducers({
+    home: homeReducer,
+    nav: navReducer
+})

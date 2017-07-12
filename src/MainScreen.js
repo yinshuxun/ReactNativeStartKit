@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
 import {StyleSheet, Text, View, Image, Button} from 'react-native'
 // import store from './storeConfig'
 
@@ -6,6 +6,7 @@ class Main extends Component {
     constructor(props) {
         super(props)
         this.state = {show: true}
+        console.log(props)
     }
 
     static navigationOptions = {

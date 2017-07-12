@@ -15,7 +15,7 @@
 // scrollToOffset(params: {animated?: ?boolean, offset: number})：滚动到指定的偏移的位置。
 
 
-import React, {Component} from 'react'
+import React, { Component } from 'react'
 import {StyleSheet, Text, FlatList, View, Button} from 'react-native'
 
 const flatData = new Array(10).fill(0).map((value, index) => {

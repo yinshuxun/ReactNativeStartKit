@@ -1,6 +1,6 @@
-import {createStore, applyMiddleware, compose} from 'redux'
+import { createStore, applyMiddleware, compose } from 'redux'
 import thunkMiddleware from 'redux-thunk'
-import reducer from './reducer'
+import rootReducer from './reducer'
 const middlewares = [thunkMiddleware]
 let middle
 
@@ -13,4 +13,15 @@ if (__DEV__ && window.__REDUX_DEVTOOLS_EXTENSION__) {
     middle = applyMiddleware(...middlewares);
 }
 
-export default (initialState) => createStore(reducer, initialState, middle);
+export default (initialState) => {
+    const store = createStore(rootReducer, initialState, middle);
+
+    if (module.hot) {
+        // Enable Webpack hot module replacement for reducers
+        module.hot.accept(() => {
+            store.replaceReducer(require('./reducer'));
+        });
+    }
+
+    return store;
+};
