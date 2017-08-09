@@ -1,9 +1,7 @@
 import { Component } from 'react'
 import { StackNavigator } from 'react-navigation'
-import Spec01 from './views/Spec01'
-import FlatListView from './views/FlatListView'
-import MainScreen from './MainScreen'
 import CardStackStyleInterpolator from 'react-navigation/src/views/CardStackStyleInterpolator'
+import routerConfig from './routers/index.js'
 
 // const paramsToProps = (SomeComponent) => {
 //   return class extends Component {
@@ -15,19 +13,6 @@ import CardStackStyleInterpolator from 'react-navigation/src/views/CardStackStyl
 //     }
 //   }
 // }
-
-export const routerConfig = {
-  Main: {
-    screen: MainScreen
-  },
-  Spec01: {
-    screen: Spec01
-  },
-  Flat: {
-    screen: FlatListView
-  }
-}
-
 export const stackNavigatorConfig = {
   initialRouteName: 'Main',
   navigationOptions: {

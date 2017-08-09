@@ -63,6 +63,7 @@ class FlatListView extends Component {
             }}/>
             <Button title='滚动到末尾' onPress={() => {
                 this._flatList.scrollToEnd();
+                
             }}/>
             <View style={{flex: 1}}>
                 <FlatList
