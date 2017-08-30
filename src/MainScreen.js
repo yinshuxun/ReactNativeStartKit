@@ -6,7 +6,6 @@ class Main extends Component {
     constructor(props) {
         super(props)
         this.state = {show: true}
-        console.log(props)
     }
 
     static navigationOptions = {
